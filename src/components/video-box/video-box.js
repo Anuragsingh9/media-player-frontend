@@ -71,7 +71,7 @@ const VideoGrid = () => {
                         <video
                             ref={(el) => (videoRefs.current[index] = el)}
                             width="100%" controls>
-                            <source src={`http://localhost:8000/api/video/${video.filename}`} type="video/mp4" />
+                            <source src={`${process.env.REACT_APP_API_URL}/api/video/${video.filename}`} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                         <div className='bottom-row'>
