@@ -33,7 +33,7 @@ const VideoPlayer = (props) => {
                 <Modal.Body>
                     <video
                         style={{ width: '100%', height: '600px' }} controls>
-                        <source src={`${process.env.REACT_APP_API_URL}/api/video/${props.video.filename}`} type="video/mp4" />
+                        <source src={props.video.filepath} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                     <Row className="like-dislike-box">
