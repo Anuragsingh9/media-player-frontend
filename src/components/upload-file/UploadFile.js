@@ -10,16 +10,9 @@ const UploadFile = () => {
     const descriptionInputRef = useRef(null);
     const titleInputRef = useRef(null);
     const [alertData, setAlertData] = useState({ title: "Success", text: "Successfully Done", icon: "success" });
-    // title = "Success!"
-    // text = "This is a success alert!"
-    // icon = "success"
+    const [isLoading,setIsLoading] = useState(false); 
 
     const [showAlert, setShowAlert] = useState(false);
-
-    // const triggerAlert = () => {
-    //     setShowAlert(true); // This will trigger the alert
-    // };
-
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -38,6 +31,7 @@ const UploadFile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         if (!file) {
             alert("Please select a file");
             return;
@@ -62,6 +56,7 @@ const UploadFile = () => {
                 console.log('File uploaded successfully:', result);
                 setAlertData({ title: "Success", text: "File uploaded successfully", icon: "success" })
                 setShowAlert(true);
+                setIsLoading(false);
             } else {
                 setAlertData({ title: "Oops...", text: "Something went wrong!", icon: "error" })
                 setShowAlert(true);
@@ -112,7 +107,8 @@ const UploadFile = () => {
                             />
                         </Form.Group>
                         <Button variant="primary" type="submit" className="w-100 mt-3">
-                            Submit
+                            {isLoading ? 'Uploading...' : 'Submit'}
+                            {/* Submit */}
                         </Button>
                     </Form>
                 </Col>

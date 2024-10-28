@@ -55,7 +55,7 @@ const VideoGrid = () => {
 
     const ellipsisText = (text) => {
         if (text) {
-            const truncatedText = text.length > 30 ? text.substring(0, 40) + "..." : text;
+            const truncatedText = text.length > 30 ? text.substring(0, 28) + "..." : text;
             return truncatedText;
         }
     };
